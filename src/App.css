@@ -29,17 +29,17 @@ img {
   width: 100%;
 }
 
-.main-body {
+.main-body>div {
   display: flex;
 }
 
-.main-body>section {
+.image-card {
   margin: 1em;
   border: 1px grey solid;
   padding: 1em;
 }
 
-.main-body>section>header {
+.image-card>header {
   font-size: 2em;
 }
 
