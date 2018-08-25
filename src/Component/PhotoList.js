@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import hobbies from '../Data/hobbies.json'
+import { Link } from 'react-router-dom'
 
 class PhotoList extends Component {
     render() {
+        const _category = this.props.match.params.category
+        const _categoryData = hobbies[_category]
+        
         return (
             <div>
-               <header>{hobbies[this.props.match.params.category].title}</header> 
-               <p>{hobbies[this.props.match.params.category].description}</p>
+               <header>{_categoryData.title}</header> 
+               <p>{_categoryData.description}</p>
                <section>
                    {
-                       hobbies[this.props.match.params.category].photos.map((photo, i) => {
-                           return <img src={photo.imageURL} alt={photo.title} />
+                       _categoryData.photos.map((photo, i) => {
+                           return <Link to={`/${_category}/${i}`}>
+                           <img src={photo.imageURL} alt={photo.title} />
+                           </Link>
                        })
                    }
                </section>
